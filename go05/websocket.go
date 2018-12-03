@@ -91,6 +91,14 @@ func main() {
 		}(conn)
 	})
 
+	// var ws = new WebSocket("ws://localhost:3000/v4/ws")
+	// undefined
+	// ws.readyState
+	// 1
+	// ws.close()		<-- 서버 종료됨
+	// undefined
+	// ws.readyState
+	// 3
 	http.HandleFunc("/v4/ws", func(w http.ResponseWriter, r *http.Request) {
 		var conn, _ = upgrader.Upgrade(w, r, nil)
 		go func(conn *websocket.Conn) {
